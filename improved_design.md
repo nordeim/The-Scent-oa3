@@ -769,3 +769,272 @@ The design can be further enhanced with:
 7. Analytics integration
 
 https://github.com/copilot/share/8a2e421e-4804-8011-a840-6a0f848a0158
+
+---
+<think>
+Let me analyze the requirements and example landing pages deeply to create an enhanced version:
+
+1. Key Elements to Consider:
+- Mission focuses on wellness, stress relief, and global sourcing/export
+- Need to showcase both essential oils and premium soaps
+- Must convey premium, natural, therapeutic qualities
+- Should incorporate global/international aspect
+
+2. Analyzing Example Landing Pages:
+- Both have good foundations but can be enhanced
+- First version has simpler structure but nice animations
+- Second version has more sophisticated layout and interactions
+- Can combine best elements while adding new features
+
+3. Areas for Enhancement:
+a) Hero Section:
+- Full-screen video background with blur/overlay
+- Animated SVG "scent trails" for unique visual
+- More impactful headline focusing on transformation
+- Stronger CTA button with animation
+
+b) Navigation:
+- Clean, minimal but sophisticated
+- Dark/light mode toggle
+- Smooth scroll links
+- Mobile-optimized
+
+c) About/Features:
+- Parallax scrolling ingredient photos
+- Interactive world map showing sourcing
+- Subtle animations on scroll
+- Focus on global reach
+
+d) Products:
+- Grid layout with hover effects
+- Clear categorization between oils/soaps
+- Product quick-view functionality
+- Enhanced product cards
+
+e) Quiz Feature:
+- Multi-step interactive format
+- Smooth transitions
+- Personalized recommendations
+- Progress indicator
+
+f) Additional Elements:
+- Ambient sound toggle for immersion
+- Floating shop button with pulse
+- Testimonials with fade-in
+- Newsletter signup
+
+4. Technical Considerations:
+- Need smooth performance with animations
+- Mobile responsiveness crucial
+- Fallbacks for video/audio
+- Accessible navigation
+
+5. Decision:
+Will create enhanced version merging best of both examples while adding:
+- More sophisticated animations
+- Better visual hierarchy
+- Stronger brand messaging
+- Improved interactivity
+
+6. Structure Plan:
+1. Hero with video + animations
+2. Nav with dark mode
+3. About with parallax
+4. Interactive product grid
+5. Multi-step quiz
+6. Testimonials
+7. Newsletter
+8. Footer
+</think>
+
+Based on this analysis, I've designed an enhanced landing page that combines sophistication with interactivity while maintaining performance and usability. I'll provide two key sections as examples - the nav/header setup and hero section:
+
+```html name=sample-header-nav.html
+<!-- Navigation + Dark Mode -->
+<nav>
+  <div class="nav-logo">
+    <a href="#home"><i class="fas fa-leaf"></i> The Scent</a>
+  </div>
+  <div class="nav-links">
+    <a href="#home"><i class="fas fa-home"></i> Home</a>
+    <a href="#about"><i class="fas fa-spa"></i> About</a>
+    <a href="#products"><i class="fas fa-box-open"></i> Products</a>
+    <a href="#scent-quiz"><i class="fas fa-search"></i> Scent Quiz</a>
+    <a href="#testimonials"><i class="fas fa-comments"></i> Reviews</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <button class="dark-toggle" title="Toggle dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="path/to/ambient-video.mp4" type="video/mp4">
+  </video>
+  
+  <!-- Animated SVG Scent Trails -->
+  <div class="scent-trails">
+    <svg viewBox="0 0 1600 900">
+      <path class="scent-trail1" 
+            d="M0 430 Q400 200 800 430 T1600 420" />
+      <path class="scent-trail2" 
+            d="M0 610 Q500 810 1100 670 T1600 630" />
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <h1>Immerse Your Senses in Pure Aroma</h1>
+    <p>Experience handcrafted, globally inspired aromatherapy—harmony and well-being with every breath.</p>
+    <a href="#products" class="hero-cta">
+      <i class="fas fa-bottle-droplet"></i>
+      Discover Collection
+      <i class="fas fa-arrow-circle-right"></i>
+    </a>
+  </div>
+</header>
+
+<!-- Ambient Audio Toggle -->
+<div class="ambient-audio-toggle">
+  <audio id="ambient-audio" loop>
+    <source src="path/to/ambient.mp3" type="audio/mp3">
+  </audio>
+  <button id="audio-toggle">
+    <i class="fas fa-volume-mute"></i>
+  </button>
+</div>
+
+<!-- Floating Shop Button -->
+<a href="#products" class="shop-now-float">
+  <i class="fas fa-shopping-bag"></i>
+  Shop Now
+</a>
+```
+
+And the corresponding CSS for these sections:
+
+```css name=sample-styles.css
+:root {
+  /* Light Theme */
+  --background: #f8f5f2;
+  --primary: #16706a;
+  --secondary: #e8e3da;
+  --accent: #d69f61;
+  --text: #28281f;
+  --text-light: #fff;
+  --shop-bg: #ff7f50;
+  --mist1: rgba(255,255,255,0.14);
+  --mist2: rgba(255,255,255,0.09);
+}
+
+body.dark {
+  /* Dark Theme */
+  --background: #181b1b;
+  --primary: #86bdb5;
+  --secondary: #212826;
+  --accent: #e2bb85;
+  --text: #f0ede8;
+  --text-light: #222;
+  --shop-bg: #ff4a39;
+}
+
+/* Hero Video Background */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Animated Scent Trails */
+.scent-trails {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.scent-trail1, .scent-trail2 {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scent-trail1 {
+  stroke: var(--mist1);
+  stroke-width: 23;
+  filter: blur(3.5px);
+  animation: aroma-trail1 9.4s ease-in-out infinite alternate;
+}
+
+.scent-trail2 {
+  stroke: var(--mist2);
+  stroke-width: 13;
+  filter: blur(2.3px);
+  animation: aroma-trail2 13s ease-in-out infinite alternate;
+}
+
+@keyframes aroma-trail1 {
+  from { 
+    stroke-dashoffset: 400;
+    opacity: .75;
+    transform: scaleX(1);
+  }
+  to { 
+    stroke-dashoffset: 260;
+    opacity: .55;
+    transform: scaleX(1.08) translateY(-17px);
+  }
+}
+
+/* Floating Shop Button */
+.shop-now-float {
+  position: fixed;
+  right: 2.4vw;
+  bottom: 2.3vw;
+  z-index: 1099;
+  background: var(--shop-bg);
+  color: #fff;
+  border-radius: 35px;
+  padding: 0.72em 1.75em;
+  animation: shopFloat 3.7s infinite cubic-bezier(.58,.06,.41,1);
+}
+
+.shop-now-float:after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 42px;
+  animation: shopGlow 2.5s infinite alternate;
+}
+
+@keyframes shopFloat {
+  0% { transform: translateY(0); }
+  47% { transform: translateY(-7px); }
+  100% { transform: translateY(2px); }
+}
+
+@keyframes shopGlow {
+  0% { box-shadow: 0 0 10px 1px var(--shop-bg); }
+  100% { box-shadow: 0 0 19px 10px var(--shop-bg); }
+}
+```
+
+This design creates an immersive experience with:
+
+1. Sophisticated animations that don't overwhelm
+2. Dark/light theme support
+3. Ambient audio option
+4. Floating shop button with effects
+5. Animated "scent trails" that suggest aromatherapy
+6. Clean, accessible navigation
+7. Responsive design considerations
+
