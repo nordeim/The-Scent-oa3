@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Scent — Premium Aromatherapy & Wellness</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Sound Toggle -->
+  <div class="ambient-audio">
+    <audio id="scentAudio" loop preload="none">
+      <source src="https://cdn.pixabay.com/audio/2022/10/16/audio_12bac8f711.mp3" type="audio/mp3">
+    </audio>
+    <button id="audioBtn" aria-label="Toggle ambient sound">
+      <i class="fas fa-volume-mute"></i>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <i class="fas fa-leaf"></i>
+        The Scent
+      </a>
+      <div class="nav-links">
+        <a href="#about"><i class="fas fa-spa"></i> About</a>
+        <a href="#products"><i class="fas fa-box-open"></i> Shop</a>
+        <a href="#quiz"><i class="fas fa-flask-vial"></i> Quiz</a>
+        <a href="#testimonials"><i class="fas fa-comments"></i> Reviews</a>
+        <button class="dark-toggle" id="darkToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="#cart" class="cart-icon">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-fallback.jpg">
+      <source src="videos/aroma-ambient.mp4" type="video/mp4">
+    </video>
+    
+    <!-- Animated Scent Trails -->
+    <div class="scent-trails">
+      <svg viewBox="0 0 1400 800">
+        <path class="scent-path1" d="M0 400 Q350 200 700 400 T1400 380"/>
+        <path class="scent-path2" d="M0 600 Q400 800 800 600 T1400 620"/>
+      </svg>
+    </div>
+    
+    <div class="hero-content">
+      <h1>Discover Your Perfect Aroma</h1>
+      <p>Handcrafted aromatherapy essentials from nature's finest ingredients</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn-primary">
+          <i class="fas fa-leaf"></i>
+          Explore Collection
+        </a>
+        <a href="#quiz" class="btn-secondary">
+          <i class="fas fa-flask"></i>
+          Find Your Scent
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="parallax-wrapper">
+            <img src="images/ingredients-1.jpg" alt="Premium ingredients" class="parallax-img">
+          </div>
+        </div>
+        <div class="about-content">
+          <h2>Nature's Wisdom in Every Drop</h2>
+          <p>The Scent brings you premium aromatherapy products crafted from globally sourced ingredients. Our commitment to quality ensures each product delivers the perfect balance of therapeutic benefits and aromatic pleasure.</p>
+          <div class="about-features">
+            <div class="feature">
+              <i class="fas fa-leaf"></i>
+              <span>100% Natural</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-globe"></i>
+              <span>Global Sourcing</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-award"></i>
+              <span>Premium Quality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <h2>Our Collections</h2>
+      <div class="product-filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="oils">Essential Oils</button>
+        <button class="filter-btn" data-category="soaps">Natural Soaps</button>
+      </div>
+      
+      <div class="products-grid">
+        <!-- Essential Oils -->
+        <div class="product-card" data-category="oils">
+          <img src="images/serenity-blend.jpg" alt="Serenity Blend">
+          <div class="product-info">
+            <span class="product-tag">Essential Oil</span>
+            <h3>Serenity Blend</h3>
+            <p>Lavender & Chamomile</p>
+            <button class="add-to-cart">
+              <i class="fas fa-shopping-bag"></i>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- More product cards... -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Scent Quiz Section -->
+  <section id="quiz" class="quiz-section">
+    <div class="container">
+      <h2>Find Your Perfect Scent</h2>
+      <div class="quiz-container">
+        <div class="quiz-step active" data-step="1">
+          <h3>What are you looking for?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="relax">
+              <i class="fas fa-cloud"></i>
+              Relaxation
+            </button>
+            <button class="quiz-option" data-value="energy">
+              <i class="fas fa-bolt"></i>
+              Energy
+            </button>
+            <button class="quiz-option" data-value="focus">
+              <i class="fas fa-brain"></i>
+              Focus
+            </button>
+          </div>
+        </div>
+        <!-- More quiz steps... -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <p>"The Serenity Blend transformed my evening routine. It's pure magic in a bottle!"</p>
+          <div class="testimonial-author">
+            <img src="images/testimonial-1.jpg" alt="Sarah L.">
+            <span>Sarah L.</span>
+          </div>
+        </div>
+        <!-- More testimonials... -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="newsletter" class="newsletter-section">
+    <div class="container">
+      <h2>Join The Scent Community</h2>
+      <p>Subscribe for exclusive offers and aromatherapy tips</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>The Scent</h3>
+          <p>Premium aromatherapy products for mind, body, and soul.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#">Essential Oils</a></li>
+            <li><a href="#">Natural Soaps</a></li>
+            <li><a href="#">Gift Sets</a></li>
+            <li><a href="#">New Arrivals</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><i class="fas fa-envelope"></i> hello@thescent.com</p>
+          <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Aroma Street, NY</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 The Scent. All rights reserved.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Shop Button -->
+  <a href="#products" class="float-shop">
+    <i class="fas fa-shopping-bag"></i>
+    Shop Now
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
